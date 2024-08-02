@@ -15,6 +15,7 @@ class Dashboard extends CI_Controller
     {
         $con=array("id"=>1);
         $data['enquiry']=$this->Common_model->all_data("admin_enquiry","*");
+        $data['donation']=$this->Common_model->all_data("admin_donation_enq","*");
         $data['navbar'] = $this->Common_model->get_data("navbar", $con, "*");
 
         return $data;

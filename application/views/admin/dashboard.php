@@ -47,6 +47,9 @@
                         <div class="container-fluid">
 
                             <div class="row">
+
+                            <div class="col-md-12">
+                                <div class="row">
                                 <div class="col-md-12 text-center py-3">
                                     <?php
                                     date_default_timezone_set("Asia/Calcutta");
@@ -74,33 +77,6 @@
                                     ?>
 
                                 </div>
-                                <div class="col-lg-3 col-6">
-
-                                    <div class="small-box bg-info">
-                                        <div class="inner">
-                                            <h3><?php echo $te; ?></h3>
-                                            <p>Today Enquiry</p>
-                                        </div>
-                                        <div class="icon">
-                                            <i class="fas fa-comments"></i>
-                                        </div>
-                                        <a href="<?php echo base_url() . "admin/Enquiry/manage_enquiry"; ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-3 col-6">
-
-                                    <div class="small-box bg-success">
-                                        <div class="inner">
-                                            <h3><?php echo $ye; ?></h3>
-                                            <p>Yesterday Enquiry</p>
-                                        </div>
-                                        <div class="icon">
-                                            <i class="fas fa-comments"></i>
-                                        </div>
-                                        <a href="<?php echo base_url() . "admin/Enquiry/manage_enquiry"; ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                                    </div>
-                                </div>
 
                                 <div class="col-lg-3 col-6">
 
@@ -118,6 +94,49 @@
 
                                 <div class="col-lg-3 col-6">
 
+                                    <div class="small-box bg-info">
+                                        <div class="inner">
+                                            <h3><?php echo $te; ?></h3>
+                                            <p>Today Enquiry</p>
+                                        </div>
+                                        <div class="icon">
+                                            <i class="fas fa-comments"></i>
+                                        </div>
+                                        <a href="<?php echo base_url() . "admin/Enquiry/manage_enquiry"; ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                                    </div>
+                                </div>
+
+                                <!-- <div class="col-lg-6 col-6"> -->
+
+                                    <!-- <div class="small-box bg-success">
+                                        <div class="inner">
+                                            <h3><?php echo $ye; ?></h3>
+                                            <p>Yesterday Enquiry</p>
+                                        </div>
+                                        <div class="icon">
+                                            <i class="fas fa-comments"></i>
+                                        </div>
+                                        <a href="<?//php echo base_url() . "admin/Enquiry/manage_enquiry"; ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                                    </div> -->
+                                <!-- </div> -->
+
+                                <div class="col-lg-3 col-6">
+
+                                    <div class="small-box bg-success">
+                                        <div class="inner">
+                                            <h3><?php echo count($enquiry) - $total_unread; ?></h3>
+                                            <p>Seen Message</p>
+                                        </div>
+                                        <div class="icon">
+                                            <i class="fa fa-envelope-open"></i>
+                                        </div>
+                                        <a href="<?php echo base_url() . "admin/Enquiry/manage_enquiry"; ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-lg-3 col-6">
+
                                     <div class="small-box bg-danger">
                                         <div class="inner">
                                             <h3><?php echo $total_unread; ?></h3>
@@ -129,22 +148,101 @@
                                         <a href="<?php echo base_url() . "admin/Enquiry/manage_enquiry"; ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                                     </div>
                                 </div>
+                                </div>
+                            </div>
+
+                            <!-- &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&  -->
+
+                            <div class="col-md-12">
+                                <div class="row">
+                                <div class="col-md-12 text-center py-3">
+                                    <?php
+                                    date_default_timezone_set("Asia/Calcutta");
+
+                                    echo date("l jS M Y");
+                                    //   date calculation
+                                    $t_don = 0;
+                                    $y_don = 0;
+                                    $total_unread = 0;
+                                    foreach ($donation as $doe) {
+                                        $d1 = date("Y-m-d", strtotime($doe['created_at']));
+                                        $d2 = date('Y-m-d');
+                                        $diff = abs(strtotime($d2) - strtotime($d1)); // it giving second difference between date
+                                        $days = $diff / 3600 / 24;
+                                        if ($days == 0) {
+                                            $t_don++;
+                                        } elseif ($days == 1) {
+                                            $y_don++;
+                                        }
+                                        // countinng Unread enquiry
+                                        if ($doe['status'] == 0) {
+                                            $total_unread++;
+                                        }
+                                    }
+                                    ?>
+
+                                </div>
+
+                                <div class="col-lg-3 col-6">
+
+                                    <div class="small-box bg-warning">
+                                        <div class="inner">
+                                            <h3><?php echo count($donation); ?></h3>
+                                            <p>Total Donation</p>
+                                        </div>
+                                        <div class="icon">
+                                            <i class="fas fa-comments"></i>
+                                        </div>
+                                        <a href="<?php echo base_url() . "admin/Donation/manage_donation"; ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-3 col-6">
+
+                                    <div class="small-box bg-info">
+                                        <div class="inner">
+                                            <h3><?php echo $t_don; ?></h3>
+                                            <p>Today Donation</p>
+                                        </div>
+                                        <div class="icon">
+                                            <i class="fas fa-comments"></i>
+                                        </div>
+                                        <a href="<?php echo base_url() . "admin/Donation/manage_donation"; ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-3 col-6">
+
+                                    <div class="small-box bg-success">
+                                        <div class="inner">
+                                            <h3><?php echo $y_don; ?></h3>
+                                            <p>Yesterday Donation</p>
+                                        </div>
+                                        <div class="icon">
+                                            <i class="fas fa-comments"></i>
+                                        </div>
+                                        <a href="<?php echo base_url() . "admin/Donation/manage_donation"; ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                                    </div>
+                                </div>
 
                                 <div class="col-lg-3 col-6">
 
                                     <div class="small-box bg-danger">
                                         <div class="inner">
-                                            <h3><?php echo count($enquiry)-$total_unread; ?></h3>
+                                            <h3><?php echo count($donation) - $total_unread; ?></h3>
                                             <p>Seen Message</p>
                                         </div>
                                         <div class="icon">
                                             <i class="fa fa-envelope-open"></i>
                                         </div>
-                                        <a href="<?php echo base_url() . "admin/Enquiry/manage_enquiry"; ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                                        <a href="<?php echo base_url() . "admin/Donation/manage_donation"; ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                                     </div>
                                 </div>
+                                
+                                </div>
+                            </div>
 
-
+        <!-- ----------------------- main row end ---------------------  -->
                             </div>
 
 

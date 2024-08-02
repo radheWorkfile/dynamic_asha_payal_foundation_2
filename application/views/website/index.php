@@ -158,7 +158,7 @@
             <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
                
                 <div class="col-lg-6" style="text-align:justify; margin-top:-10px; margin-bottom:-80px;font-weight:normal;">
-                    <h2 style="margin-top:1rem;font-family:'Playfair Display',serif;font-weight:800;font-size:3rem;"><b><span style="font-size:4rem;color:#004789;">Welcome To</span> <span style="color:#53c5f1;">Asha Payal</span> Foundation</b></h2>
+                    <h2 class="wow zoomInLeft" style="margin-top:1rem;font-family:'Playfair Display',serif;font-weight:800;font-size:3rem;"><b><span style="font-size:4rem;color:#004789;">Welcome To</span> <span style="color:#53c5f1;">Asha Payal</span> Foundation</b></h2>
                     <h4 class="display-5 fw-bold lh-1 mb-3"style="margin-top:1rem;color:##004789;"><b><?php echo $about['about_header']; ?></b></h4>
                     <p class="lead"><?php echo $about['about_text']; ?></p>
 
@@ -185,7 +185,7 @@
 
                 </div>
                 <div class="col-md-1"> </div>
-                <div class="col-md-5">
+                <div class="col-md-5 wow zoomInRight">
                     <img src="<?php echo base_url() . "uploads/image/" . $about['about_image']; ?>" class="d-block mx-lg-auto img-fluid " alt="<?php echo base_url() . "uploads/image/" . $about['about_image']; ?>" width="700"  loading="lazy" style="height:38rem;width:100%;">
                 </div>
             </div>
@@ -199,11 +199,13 @@
 
 
   <!--=================summernote1 section start========================================== -->
-  <?php if ($menu_p['sumernote1'] != 0 && !empty($summernote1)) : ?>
+<section class="wow zoomIn">
+<?php if ($menu_p['sumernote1'] != 0 && !empty($summernote1)) : ?>
         <div class="container" style="margin-top:75px; margin-bottom:55px;">
             <div class="text-justify"><?php echo $summernote1['content']; ?></div>
         </div>
     <?php endif; ?>
+</section>
     <!--====================summernote1 section end==================================================== -->
 
 
@@ -221,13 +223,13 @@
 <div class="col-md-5">
 
     <div class="row">
-     <div class="row">
+     <div class="row wow zoomIn">
             <div class="col-md-12" id="button_man" style="border:1px solid white;border-radius:0.5rem;background-color:#008bc1;padding:2rem;font-weight:600;">
                 <h4><i class="fa fa-sign-out"></i>&nbsp; Worldwide charity programs&nbsp;<span style="float:right;color:#4aa6fb;font-size:2rem;"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;</span></h4>
             </div>
 
         </div>
-        <div class="row box-text" style="display:none;">
+        <div class="row box-text wow zoomIn" style="display:none;">
             <div class="col-md-12" style="background-color:rgb(12 130 175);padding:2rem;font-weight:600;">
                 <p style="font-weight:100;text-align:justify;color:black;">Worldwide charity programs focus on reducing poverty, enhancing education, and providing essential healthcare. These initiatives strive to uplift underprivileged communities, offering support and opportunities for a better future globally.
                 </p>
@@ -237,7 +239,7 @@
         </div>
     </div>
 
-    <div class="row"style="margin-top:2rem;">
+    <div class="row wow zoomIn"style="margin-top:2rem;">
      <div class="row">
             <div class="col-md-12" id="button_man_1" style="border:1px solid white;border-radius:0.5rem;background-color:#008bc1;padding:2rem;font-weight:600;">
                 <h4><i class="fa fa-sign-out"></i>&nbsp;Charity programs for children&nbsp;<span style="float:right;color:#4aa6fb;font-size:2rem;"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;</span></h4>
@@ -254,7 +256,7 @@
         </div>
     </div>
 
-    <div class="row"style="margin-top:2rem;">
+    <div class="row wow zoomIn"style="margin-top:2rem;">
      <div class="row">
             <div class="col-md-12" id="button_man_2" style="border:1px solid white;border-radius:0.5rem;background-color:#008bc1;padding:2rem;font-weight:600;">
                 <h4><i class="fa fa-sign-out"></i>&nbsp;Online donation seystem &nbsp;<span style="float:right;color:#4aa6fb;font-size:2rem;"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;</span></h4>
@@ -281,7 +283,8 @@
 
 
     <!--====================summernote section start==================================================== -->
-    <?php if ($menu_p['sumernote'] != 0 && !empty($summernote)) : ?>
+ <section class="wow zoomIn">
+ <?php if ($menu_p['sumernote'] != 0 && !empty($summernote)) : ?>
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -290,6 +293,7 @@
             </div>
         </div>
     <?php endif; ?>
+ </section>
     <!--====================summernote section end==================================================== -->
 
         <!--====================news section start==================================================== -->

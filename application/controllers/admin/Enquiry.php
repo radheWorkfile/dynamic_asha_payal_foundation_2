@@ -118,6 +118,7 @@ class Enquiry extends CI_Controller
 
     public function donation_enquery()
     {
+     
       $this->form_validation->set_rules('fname',  'First Name', 'required');
       $this->form_validation->set_rules('lname',  'Last Name', 'required');
       $this->form_validation->set_rules('mobile', 'Mobile Number', 'required');
